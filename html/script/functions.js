@@ -2,6 +2,8 @@ $(document).ready(function() {
 	$("#date").datepicker({ dateFormat: "yyyy-mm-dd" });
 	$('#start').timepicker({ 'timeFormat': 'G:i' });
 	$('#stop').timepicker({ 'timeFormat': 'G:i' });
+	$("#tabs").tabs();
+
 	$("form").on("submit",function(event) {
 		$("form").validate({
 			rules: {

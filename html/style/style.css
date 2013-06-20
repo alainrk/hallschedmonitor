@@ -37,3 +37,240 @@ input{
 
 
 
+
+
+
+
+	/*
+	 *	Custom Theme
+	 */
+	/* outer-layout colors */
+	body.custom , /* class used to trigger 'custom theme' for all elements */
+	.custom #outer-center ,
+	.custom #outer-south {
+		background:		#776;
+	}
+	/* Tabs Wrapper & Buttons*/
+	#outer-center.ui-tabs ,
+	#outer-center.ui-tabs>ul {
+		border-bottom:	0;
+		padding-bottom:	0;
+		border-radius:			0;
+		-moz-border-radius:		0;
+		-webkit-border-radius:	0;
+		}
+		.custom #outer-center.ui-tabs ,
+		.custom #outer-center.ui-tabs>ul {
+			background:	transparent;
+			border:		0;
+			padding:	0;
+			}
+			.custom #tabbuttons LI { /* tab wrapper */
+				border:			0;
+				margin-left:	5px;
+			}
+			.custom #tabbuttons LI:first-child { /* first tab */
+				margin-left:	15px;
+			}
+			.custom #tabbuttons LI A { /* tab links/style */
+				font-weight:	bold;
+				cursor:			pointer !important; /* override theme - for 'sorting' */
+				border-radius:					0;
+				-moz-border-radius:				0;
+				-webkit-border-radius:			0;
+				border-top-radius:				4px;
+				-moz-border-radius-topleft: 	4px;
+				-moz-border-radius-topright: 	4px;
+				-webkit-border-top-left-radius: 4px;
+				-webkit-border-top-right-radius: 4px;
+			}
+	/*	Tab Panels & Contents */
+	.toolbar {
+		overflow:		hidden;
+		/*border-top:		0 !important;*/
+	}
+	.custom .toolbar { /* north AND south panes */
+		background:		#666; /* changed below to match tab-color */
+		color:			#FFF !important; /* override Theme */
+		font-weight:	bold;
+		padding:		6px 2em;
+	}
+	.custom #tabpanels .tab-panel {
+		border-radius:			8px;
+		-moz-border-radius:		8px;
+		-webkit-border-radius:	8px;
+	}
+	.custom .ui-layout-north > .toolbar { /* north 'toolbar' */
+		border:			0;
+		border-top-radius:				8px;
+		-moz-border-radius-topleft: 	8px;
+		-moz-border-radius-topright: 	8px;
+		-webkit-border-top-left-radius: 8px;
+		-webkit-border-top-right-radius: 8px;
+	}
+	.custom .ui-layout-south > .toolbar { /* south 'statusbar' */
+		border-bottom-radius:				8px;
+		-moz-border-radius-bottomleft: 		8px;
+		-moz-border-radius-bottomright: 	8px;
+		-webkit-border-bottom-left-radius:	8px;
+		-webkit-border-bottom-right-radius: 8px;
+	}
+	/*
+	 *	Can't pad #tabpanels .tab-panel containers because have width/height = 100%
+	 *	so must pad outer-edges of inner-panes instead to get nice whitespace
+	*/
+	.tab-panel .ui-layout-west { padding-left:	10px; } /* same as west__spacing_closed */
+	.tab-panel .ui-layout-east { padding-right:	10px; } /* same as east__spacing_closed */
+	/*  
+	 *	Every inner-layout is made up of header, content and footer panels
+	 */
+	.ui-widget-header {
+		padding:		4px 1em;
+	}
+	.ui-widget-footer {
+		font-size:		.85em;
+		font-weight:	normal !important;
+	}
+	.custom .ui-widget-header {
+		border:			0;
+		color:			#FFF;
+		font-size:		.85em;
+		font-weight:	bold;
+		letter-spacing:	1px;
+		text-transform:	uppercase;
+	}
+	.custom .ui-widget-footer { /* NOTE: no such class, so footer ALSO has: ui-widget-header */
+		border:			0;
+		color:			#FFF;
+		letter-spacing:	normal;
+		text-transform:	none;
+		text-align:		center;
+		padding:		3px 1ex 4px;
+	}
+	.custom .ui-widget-content {
+		/* padding & overflow were already set above under 'Generic Layout Styles' */
+		border:			0;
+		background:		#F9F9F9;
+		color:			#000;
+	}
+	/* #tab1 = blue-green */
+	.custom #tabbuttons .tab1 a 	{ background: #007182; color: #FFF; } /* override UI Theme */
+	.custom #tabpanels #tab1,
+	.custom #tab1 .ui-layout-resizer-sliding ,
+	.custom #tab1 .ui-layout-west ,		/* sidebar panes too - for when 'sliding' */
+	.custom #tab1 .ui-layout-east	{ background: #83c9d4; }
+	.custom #tab1 .ui-layout-resizer-closed { border: 1px solid #378c99; }
+	.custom #tab1 .toolbar			{ border:	0; }
+	.custom #tab1 .toolbar ,
+	.custom #tab1 .ui-widget-header { background: #007182; } /* override UI Theme */
+	.custom #tab1 .ui-widget-footer	{ background: #378c99; }
+	/*
+	.custom #tab1 > .ui-layout-center ,
+	.custom #tab1 .ui-layout-pane .ui-layout-pane { border: 2px solid #378c99; }
+	.custom #tab1 .ui-widget-content	{ border: 1px solid #007182; }
+	*/
+	/* #tab2 = green */
+	.custom #tabbuttons .tab2 a 	{ background: #16b81e; color: #FFF; } /* override UI Theme */
+	.custom #tabpanels #tab2,
+	.custom #tab2 .ui-layout-resizer-sliding ,
+	.custom #tab2 .ui-layout-west ,		/* sidebar panes too - for when 'sliding' */
+	.custom #tab2 .ui-layout-east	{ background: #88e48d; }
+	.custom #tab2 .ui-layout-resizer-closed { border: 1px solid #4cbf52; }
+	.custom #tab2 .toolbar ,
+	.custom #tab2 .ui-widget-header { background: #16b81e; border: 0; }
+	.custom #tab2 .ui-widget-footer { background: #4cbf52; border: 0; }
+	/*
+	.custom #tab2 > .ui-layout-center ,
+	.custom #tab2 .ui-layout-pane .ui-layout-pane { border: 2px solid #4cbf52; }
+	.custom #tab2 .ui-widget-content	{ border: 1px solid #16b81e; }
+	*/
+	/* #tab3 = purple */
+	.custom #tabbuttons .tab3 a 	{ background: #6f2ab8; color: #FFF; } /* override UI Theme */
+	.custom #tabpanels #tab3,
+	.custom #tab3 .ui-layout-resizer-sliding ,
+	.custom #tab3 .ui-layout-west ,		/* sidebar panes too - for when 'sliding' */
+	.custom #tab3 .ui-layout-east	{ background: #c3a2e4; }
+	.custom #tab3 .ui-layout-resizer-closed { border: 1px solid #9055cf; }
+	.custom #tab3 .toolbar ,
+	.custom #tab3 .ui-widget-header	{ background: #6f2ab8; }
+	.custom #tab3 .ui-widget-footer	{ background: #9055cf; }
+	/*
+	.custom #tab3 > .ui-layout-center ,
+	.custom #tab3 .ui-layout-pane .ui-layout-pane { border: 2px solid #9055cf; }
+	.custom #tab3 .ui-widget-content{ border: 1px solid #6f2ab8; }
+	*/
+
+
+	/*
+	 *	Layout Resizers 
+	 */
+	.ui-layout-resizer-sliding {
+		background-color:	#BBB; /* overridden by custom theme, above */
+	}
+	.ui-layout-resizer-open-hover,
+	.ui-layout-resizer-drag, /* cloned bar */
+	.ui-layout-resizer-dragging {
+		background:			#BBB !important; /* need higher specificity */
+		opacity: 			0.5 !important;  /* ditto - not sure why? */
+		filter: 			Alpha(Opacity=50) !important;
+	}
+	.ui-layout-resizer-dragging-limit {
+		background:			#d44848 !important;
+	}
+	.ui-layout-resizer-closed-hover {
+		background:			#ebd5aa;
+	}
+
+	/*
+	 *	Layout Togglers 
+	 */
+	.ui-layout-toggler {
+		background-color: #FFF;
+		opacity:		.60;
+		filter:			Alpha(Opacity=60);
+	}
+	.ui-layout-resizer-open-hover .ui-layout-toggler, 
+	.ui-layout-toggler-hover {
+		opacity:		1;
+		filter:			Alpha(Opacity=100);
+	}
+	.ui-layout-toggler .ui-icon			{ margin:		0 auto; } /* default - center horizontally */
+	.ui-layout-toggler-north .ui-icon ,
+	.ui-layout-toggler-south .ui-icon	{ margin-top:	-3px; } /* tweak arrow vertical-center */
+	.ui-layout-toggler-west .ui-icon ,
+	.ui-layout-toggler-east .ui-icon	{ margin-left:	-3px; } /* tweak arrow horizontal-center */
+	/* assign arrows for each side & state */
+	.ui-layout-toggler-north-closed .ui-icon, 
+	.ui-layout-toggler-south-open .ui-icon {
+	 	background-position: -64px -192px;	/* ui-icon-circle-triangle-s */
+		background-position: -128px -16px;	/* ui-icon-triangle-2-n-s */
+		background-position: -64px -16px;	/* ui-icon-triangle-1-s */
+	}
+	.ui-layout-toggler-south-closed .ui-icon, 
+	.ui-layout-toggler-north-open .ui-icon {
+	 	background-position: -96px -192px;	/* ui-icon-circle-triangle-n */
+		background-position: -128px -16px;	/* ui-icon-triangle-2-n-s */
+		background-position: 0 -16px;		/* ui-icon-triangle-1-n */
+	}
+	.ui-layout-toggler-west-closed .ui-icon, 
+	.ui-layout-toggler-east-open .ui-icon {
+	 	background-position: -48px -192px;	/* ui-icon-circle-triangle-e */
+		background-position: -144px -16px;	/* ui-icon-triangle-2-e-w */
+		background-position: -32px -16px;	/* ui-icon-triangle-1-e */
+	}
+	.ui-layout-toggler-east-closed .ui-icon, 
+	.ui-layout-toggler-west-open .ui-icon {
+	 	background-position: -80px -192px;	/* ui-icon-circle-triangle-w */
+		background-position: -144px -16px;	/* ui-icon-triangle-2-e-w */
+		background-position: -96px -16px;	/* ui-icon-triangle-1-w */
+	}
+	/* ALT Graphics
+	.ui-layout-toggler-east-closed, 
+	.ui-layout-toggler-west-open	{ background: transparent url(/lib/img/toggle-lt.gif) no-repeat right center; }
+	.ui-layout-toggler-west-closed, 
+	.ui-layout-toggler-east-open	{ background: transparent url(/lib/img/toggle-rt.gif) no-repeat left center; }
+	.ui-layout-toggler-south-closed, 
+	.ui-layout-toggler-north-open	{ background: transparent url(/lib/img/toggle-up.gif) no-repeat center bottom; }
+	.ui-layout-toggler-north-closed, 
+	.ui-layout-toggler-south-open	{ background: transparent url(/lib/img/toggle-dn.gif) no-repeat center top; }
+	*/

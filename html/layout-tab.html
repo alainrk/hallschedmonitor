@@ -150,8 +150,10 @@
 	 *	Outer Layout - Cosmetic
 	 */
 	#outer-north {
+		display: hide;
 		font-weight:	bold;
 		padding:		1em 1em;
+		
 		}
 		#outer-north div.buttons {
 			float:			right;
@@ -167,7 +169,6 @@
 	 */
 	/* outer-layout colors */
 	body.custom , /* class used to trigger 'custom theme' for all elements */
-	.custom #outer-north ,
 	.custom #outer-center ,
 	.custom #outer-south {
 		background:		#776;
@@ -435,7 +436,6 @@
 	,	resizable:				false
 	,	slidable:				false
 	,	closable:				false
-	,	north__paneSelector:	"#outer-north"
 	,	center__paneSelector:	"#outer-center" 
 	,	south__paneSelector:	"#outer-south" 
 	,	south__spacing_open:	0
@@ -550,28 +550,11 @@
 		alert( 'Number of Accordion widgets = '+ $(":ui-accordion").length );
 		alert( 'Number of Tabs widgets = '+ $(":ui-tabs").length );
 		*/
-
-		addThemeSwitcher('#outer-north',{ top: '13px', right: '20px' });
-		// if a theme is applied by ThemeSwitch *onLoad*, it may change the height of some content,
-		// so we need to call resizeLayout to 'correct' any header/footer heights affected
-		// call multiple times so fast browsers update quickly, and slower ones eventually!
-		// NOTE: this is only necessary because we are changing CSS *AFTER LOADING* (eg: themeSwitcher)
-		//setTimeout( resizePageLayout, 1000 ); /* allow time for browser to re-render for theme */
-		//setTimeout( resizePageLayout, 5000 ); /* for really slow browsers */
 	});
 	</SCRIPT> 
  
 </HEAD> 
 <BODY class="custom"> 
-
-<DIV id="outer-north">
-	<DIV class="buttons">
-		<BUTTON onClick="toggleCustomTheme()">Toggle Custom Theme</BUTTON>
-		<BUTTON onClick="removeUITheme(); resizePageLayout()">Remove UI Theme</BUTTON>
-		<BUTTON onClick="resizePageLayout()">Resize Layout</BUTTON>
-	</DIV>
-	Layouts-Inside-Tabs Demo
-</DIV>
 
 <DIV id="page-loading">Loading...</DIV>
 

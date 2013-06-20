@@ -3,7 +3,7 @@
 	<head>
 		<!-- RELEASE INDEX -->
 		<meta charset='utf-8' />
-		<title>Add Event</title>
+		<title>Scheduling Aule</title>
 		
 		<link rel='stylesheet' type='text/css' href='style/style.css' />
 		<script type='text/javascript' src='script/lib/jquery-2.0.2.min.js'></script>
@@ -26,7 +26,13 @@
 	<head>
 		
 	<body>
-	<div id="formid" >
+<div id="tabs">
+  <ul>
+    <li><a href="#event-tab">Aggiungi evento</a></li>
+    <li><a href="#monitor-tab">Monitor</a></li>
+  </ul>
+  <div id="event-tab">
+    <div id="formid" >
 		<form id="addEvent" method="post">
 		<fieldset>
 		<p>
@@ -70,6 +76,14 @@
 
 		</form>
 	</div>
+  </div>
+  
+  <div id="monitor-tab">
+
+  </div>
+  
+  
+</div> <!-- END TABS -->
 	<footer></footer>
 	</body>
 
