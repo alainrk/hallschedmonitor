@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- RELEASE INDEX -->
+		<meta charset='utf-8' />
+	 	<title>Add Event</title>
+		<link rel='stylesheet' type='text/css' href='style/style.css' />
+		<script type='text/javascript' src='lib/jquery-2.0.2.min.js'></script>
+		<!--- JQUERY Take static */ --->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	    <link rel="stylesheet" href="/resources/demos/style.css" />
+	    
+	    <!--- Timepicker DOC: http://jonthornton.github.io/jquery-timepicker/ --->
+		<script type="text/javascript" src="lib/jquery-timepicker/jquery.timepicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="lib/jquery-timepicker/jquery.timepicker.css" />
+		 <script type="text/javascript" src="lib/jquery-timepicker/lib/base.js"></script>
+		 <link rel="stylesheet" type="text/css" href="lib/jquery-timepicker/lib/base.css" />
+		 
+		 <!--- My */ --->
+		<script type='text/javascript' src='script/functions.js'></script>
+  
+	<head>
+		
+	<body>
+	<form id="addEvent" method="post">
+		
+	<p>
+		<label for="aula" >Aula</label> 
+		<select name="aula">
+		  <option value="1">Barcellona</option>
+		  <option value="2">New York</option>
+		  <option value="3">Londra</option>
+		  <option value="4">Granada</option>
+		  <option value="5">Laboratorio</option>
+		</select>
+	</p>
+	<p>
+		<label for="aula">Data</label> 
+		<input type="text" id="datepicker" />
+	</p>
+ 	<p>
+		<label for="aula">Ora inizio</label> 
+		<input type="text" id="timepicker-start" name="timepicker-start" />
+	</p>
+	<p>
+		<label for="aula">Ora fine</label> 
+		<input type="text" id="timepicker-stop" name="timepicker-start" />
+	</p>
+ 	<p>
+		<label for="title">Titolo evento</label> 
+		<input type="text" id="title" name="title" />
+	</p>
+
+	<input id="title" name="nome" type="text" />
+ 
+E-mail:
+ 
+	<input id="email" name="email" type="text" />
+ 
+Oggetto:
+ 
+	<input id="oggetto" name="ogggetto" type="text" />
+ 
+Messaggio:
+ 
+	<textarea id="messaggio" cols="20" rows="9" name="messaggio"></textarea>
+ 
+	<input id="invia" name="invia" type="submit" value="Invia" />
+	</form>
+	</body>
+
