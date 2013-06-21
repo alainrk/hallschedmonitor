@@ -47,11 +47,17 @@ $(document).ready(function() {
 		});
 		event.preventDefault();
 		console.log($(this).serialize());
-		manageforum($(this).serialize());
+		manageform($(this).serialize());
 	});
 });
 
-function manageforum(data) {
+function writeInTd (t, h, txt) {
+	//TODO This is an example
+	$("td[time='"+t+"'][hall='"+h+"']").text(txt);
+	}
+
+
+function manageform(data) {
 	//TODO: Send to php 
 	resetForm("addEvent");
 	}
