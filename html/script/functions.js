@@ -52,7 +52,12 @@ $(document).ready(function() {
 });
 
 function writeInTd (t, h, txt) {
-	//TODO This is an example
+
+	$("td[time='"+t+"'][hall='"+h+"']").text(txt);
+	}
+	
+function writeInTdHTML (t, h, txt) {
+	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
 	$("td[time='"+t+"'][hall='"+h+"']").text(txt);
 	}
 
