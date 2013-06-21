@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$("#date").datepicker({ dateFormat: "yyyy-mm-dd" });
 	$('#start').timepicker({ 'timeFormat': 'G:i' });
 	$('#stop').timepicker({ 'timeFormat': 'G:i' });
+	$('#table_id').dataTable();
 	$("#tabs").tabs();
 
 	$("form").on("submit",function(event) {
