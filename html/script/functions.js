@@ -1,7 +1,20 @@
 $(document).ready(function() {
-	$("#date").datepicker({ dateFormat: "yyyy-mm-dd" });
-	$('#start').timepicker({ 'timeFormat': 'G:i' });
-	$('#stop').timepicker({ 'timeFormat': 'G:i' });
+	// DEBUG
+	$('#title').val("Titolo Evento");
+	$('#speaker').val("Relatore Principale");
+	//
+	$('#date').datepicker({ dateFormat: "yyyy-mm-dd" });
+	$('#date').datepicker({ gotoCurrent: true });
+	
+	$('.timepick').timepicker({'timeFormat': 'G:i'});
+	$('.timepick').timepicker('setTime', new Date());
+	$('.timepick').timepicker({ 'forceRoundTime': true });
+	$('.timepick').timepicker('option', {
+		'minTime': '06:00',
+		'maxTime': '23:45',
+		'step': 15	
+		 });
+
 	$('#table').dataTable();
 	$("#tabs").tabs();
 
@@ -63,12 +76,27 @@ function writeInTdHTML (t, h, txt) {
 
 
 function manageform(data) {
-	//TODO: Send to php 
+	//TODO: Send to php
 	resetForm("addEvent");
+	sendData(data);
 	}
 	
 function resetForm(id) {
-   $('#' + id + ' :input').each(function(){ 
+   $('.toreset').each(function(){ 
       $(this).val('');
    });
 }
+
+function sendData(serialized){
+	var sending = $.ajax({
+	  type: "POST",
+	  url: "cgi-bin/xml.php",
+	  data: serialized
+	});
+	sending.success(function(ret, textStatus) {
+	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
+	});
+	sending.fail(function(jqXHR, textStatus) {
+	  alert( "Request failed: " + textStatus );
+	});
+	}

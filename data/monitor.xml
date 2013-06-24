@@ -21,20 +21,17 @@
 >
 <!ELEMENT aule 	((aula)+) >
 
-<!ELEMENT aula 		(name, scheduling) >
+<!ELEMENT aula 		(scheduling) >
 <!ATTLIST aula
 	id    ID     #REQUIRED
 >
-<!ELEMENT name 			(%text_and_entity;)* >
+
 <!ELEMENT scheduling 		((date)+) >
 
-<!ELEMENT date 		(m, p, s) >
+<!ELEMENT date 		((event)*) >
 <!ATTLIST date
 	id    ID     #REQUIRED <!--- NON SONO SICURO CHE CI VOGLIA UN ID --->
 >
-<!ELEMENT m 		((event)*) >
-<!ELEMENT p 		((event)*) >
-<!ELEMENT s 		((event)*) >
 
 <!ELEMENT event 		(title, speaker) >
 <!ATTLIST closing
@@ -44,17 +41,13 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <aule>
-	<aula id="1">
-		<name>Barcellona</name>
+	<aula id="barcellona">
 		<scheduling>
 			<date id="2002-09-24">
-				<m>
 					<event start="9:00" stop="10:00">
 						<title>SICUREZZA 1</title>
 						<speaker>Paolo Rossi</speaker>
 					</event>
-				</m>
-				<p>
 					<event start="16:00" stop="17:00">
 						<title>SICUREZZA 2</title>
 						<speaker>Paolo Rossi</speaker>
@@ -63,13 +56,10 @@
 						<title>SICUREZZA 3</title>
 						<speaker>Paolo Rossi</speaker>
 					</event>
-				</p>
-				<s>
 					<event start="21:00" stop="22:00">
 						<title>SICUREZZA 4</title>
 						<speaker>Paolo Rossi</speaker>
 					</event>
-				</s>
 			</date>
 		</scheduling>
 	</aula>

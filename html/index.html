@@ -20,7 +20,7 @@
 		<!--- Validation DOC: http://validation.bassistance.de/documentation/ */ --->
 		<script type="text/javascript" src="script/lib/jquery-validation-1.8.1/jquery.validate.js" /></script>
 
-		<!--- Table for calendar DOC: http://www.datatables.net/ */ --->
+		<!--- Table DOC: http://www.datatables.net/ */ --->
 		<script type="text/javascript" src="script/lib/DataTables-1.9.4/media/js/jquery.dataTables.js" /></script>
 
 		<!--- My */ --->
@@ -54,19 +54,19 @@
 		</p>
 		<p>
 			<label for="start">Ora inizio</label> 
-			<input type="text" id="start" name="start" />
+			<input class="toreset, timepick" type="text" id="start" name="start" />
 		</p>
 		<p>
 			<label for="stop">Ora fine</label> 
-			<input type="text" id="stop" name="stop" />
+			<input class="toreset, timepick" type="text" id="stop" name="stop" />
 		</p>
 		<p>
 			<label for="title">Titolo evento</label> 
-			<input type="text" id="title" name="title" />
+			<input class="toreset" type="text" id="title" name="title" />
 		</p>
 		<p>
 			<label for="speaker">Speaker</label> 
-			<input style="float:'right'" type="text" id="speaker" name="speaker" />
+			<input class="toreset" style="float:'right'" type="text" id="speaker" name="speaker" />
 		</p>
 		<p>
 			<input type="submit" id="submit" />

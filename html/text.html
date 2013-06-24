@@ -1,0 +1,88 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Tabs - Default functionality</title>
+  
+  		<link rel='stylesheet' type='text/css' href='style/style.css' />
+		<script type='text/javascript' src='script/lib/jquery-2.0.2.min.js'></script>
+		<!--- JQUERY Take static */ --->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+		<!--- Timepicker DOC: http://jonthornton.github.io/jquery-timepicker/ --->
+		<script type="text/javascript" src="script/lib/jquery-timepicker/jquery.timepicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="script/lib/jquery-timepicker/jquery.timepicker.css" />
+		<script type="text/javascript" src="script/lib/jquery-timepicker/lib/base.js"></script>
+		<link rel="stylesheet" type="text/css" href="script/lib/jquery-timepicker/lib/base.css" />
+
+		<!--- Validation DOC: http://validation.bassistance.de/documentation/ */ --->
+		<script type="text/javascript" src="script/lib/jquery-validation-1.8.1/jquery.validate.js" /></script>
+
+		<!--- My */ --->
+		<script type='text/javascript' src='script/functions.js'></script>
+  
+
+</head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#event-tab">Aggiungi evento</a></li>
+    <li><a href="#monitor-tab">Monitor</a></li>
+  </ul>
+  <div id="event-tab">
+    <div id="formid" >
+		<form id="addEvent" method="post">
+		<fieldset>
+		<p>
+			<label for="aula" >Aula</label> 
+			<select name="aula">
+			  <option value="1">Barcellona</option>
+			  <option value="2">New York</option>
+			  <option value="3">Londra</option>
+			  <option value="4">Granada</option>
+			  <option value="5">Laboratorio</option>
+			</select>
+		</p>
+		<p>
+			<div><label for="aula">Data</label>
+			<input type="text" name="aula" id="date" /></div>
+		</p>
+		<p>
+			<label for="start">Ora inizio</label> 
+			<input type="text" id="start" name="start" />
+		</p>
+		<p>
+			<label for="stop">Ora fine</label> 
+			<input type="text" id="stop" name="stop" />
+		</p>
+		<p>
+			<label for="title">Titolo evento</label> 
+			<input type="text" id="title" name="title" />
+		</p>
+		<p>
+			<label for="speaker">Speaker</label> 
+			<input style="float:'right'" type="text" id="speaker" name="speaker" />
+		</p>
+		<p>
+			<input type="submit" id="submit" />
+		</p>
+		<p>
+			<input type="reset" value="Reset" />
+		</p>
+		
+		</fieldset>
+
+		</form>
+	</div>
+  </div>
+  <div id="monitor-tab">
+    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+  </div>
+</div>
+ 
+ 
+</body>
+</html>

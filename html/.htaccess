@@ -1,0 +1,5 @@
+RewriteEngine On
+
+#EXCEL
+RewriteRule excel/ /cgi-bin/excel.php [L]
+RewriteRule excel /cgi-bin/excel.php [L]
