@@ -1,6 +1,40 @@
 <?php
 
-echo $_POST["title"];
+/* aula=barcellona&date=06%2F12%2F2013&start=7%3A30am&stop=7%3A30am&title=sddd&speaker=dddddd */
+echo $_POST["date"];
+
+$aula = $_POST["aula"];
+$date = $_POST["date"];
+$start = $_POST["start"];
+$stop = $_POST["stop"];
+$title = $_POST["title"];
+$speaker = $_POST["speaker"];
+
+$xmlDoc = new DOMDocument();
+$xmlDoc->load("monitor.xml");
+$xpathDOM = new DOMXPath($xmlDoc);
+
+//$query = "/aule/aula[@id='"+$aula+"']";
+//Query return a DOMnodelist
+//$aulaNode = $xpathDOM->query($query);
+
+$query = "/aule/aula[@id='"+$aula+"']/date[@id='"+$date+"']";
+$dateNode = $xpathDOM->query($query);
+if ($dateNode->length != 0) {
+	$dateNode = $dateNode.item(0);
+	}
+else {
+	$dateNode = $xmlDoc->createElement('date');
+	$dateNode->setAttribute('id',$date);
+	$xmlDoc->appendChild($dateNode);
+	}
+$eventNode = $xmlDoc->createElement('event');
+$dateNode->appendChild($eventNode);
+
+// To save 
+$xmlDoc->save('text.xml');
+
+
 die();
 
 function pino(){
@@ -18,7 +52,7 @@ $imp = new DOMImplementation;
 		/* TODO: Aprire documento monitor.xml
 		 * -Creare nodo EVENT
 		 * -Cercare in base ad aula
-		 * -Al suo interno cercare la data 
+		 * -Al suo interno cercare la data
 		 * 		-Se NON c'è creare nodo DATE con id la data, e metterci dentro EVENT creato prima
 		 * 		-Se GIÀ c'è allora metterci dentro EVENT creato prima
 		 */

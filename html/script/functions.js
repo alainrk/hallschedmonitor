@@ -21,7 +21,8 @@ $(document).ready(function() {
 	$("form").on("submit",function(event) {
 		$("form").validate({
 			rules: {
-				data: "required",
+				//FIXME: Check sulla data, anche se vuota accettata
+				date: "required",
 				start: "required",
 				stop: "required",
 				username: {
@@ -49,7 +50,7 @@ $(document).ready(function() {
 				agree: "required"
 			},
 			messages: {
-				data: "Inserire una data",
+				date: "Inserire una data",
 				start: function(){alert("Inserire orario di inizio")},
 				stop: "Inserire orario di termine",
 				title: {
