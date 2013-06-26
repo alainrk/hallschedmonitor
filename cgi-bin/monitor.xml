@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+<!ENTITY agrave 	"&#224;">
+<!ENTITY egrave 	"&#232;">
+<!ENTITY eacute 	"&#233;">
+<!ENTITY igrave 	"&#236;">
+<!ENTITY ograve 	"&#242;">
+<!ENTITY ugrave 	"&#249;">
+
+<!ENTITY Agrave 	"&#192;">
+<!ENTITY Egrave 	"&#200;">
+<!ENTITY Eacute 	"&#201;">
+<!ENTITY Igrave 	"&#204;">
+<!ENTITY Ograve 	"&#210;">
+<!ENTITY Ugrave 	"&#217;">
+		
+
+<!ENTITY % text_and_entity "#PCDATA | entity" >
+
+<!ELEMENT entity 		EMPTY >
+<!ATTLIST entity
+	name  CDATA  #REQUIRED
+>
+<!ELEMENT aule 	((aula)+) >
+
+<!ELEMENT aula 		((date)+) >
+<!ATTLIST aula
+	id    ID     #REQUIRED
+>
+
+<!ELEMENT date 		((event)*) >
+<!ATTLIST date
+	id    ID     #REQUIRED
+>
+
+<!ELEMENT event 		(title, speaker) >
+<!ATTLIST closing
+	start  	CDATA  	#REQUIRED
+	stop	CDATA	#REQUIRED
+>
+-->
+
+<aule>
+	<aula id="barcellona">
+			<date id="2002-09-24">
+					<event start="9:00" stop="10:00">
+						<title>SICUREZZA 1</title>
+						<speaker>Paolo Rossi</speaker>
+					</event>
+					<event start="16:00" stop="17:00">
+						<title>SICUREZZA 2</title>
+						<speaker>Paolo Rossi</speaker>
+					</event>
+					<event start="17:00" stop="19:00">
+						<title>SICUREZZA 3</title>
+						<speaker>Paolo Rossi</speaker>
+					</event>
+					<event start="21:00" stop="22:00">
+						<title>SICUREZZA 4</title>
+						<speaker>Paolo Rossi</speaker>
+					</event>
+			</date>
+	</aula>
+</aule>
+
