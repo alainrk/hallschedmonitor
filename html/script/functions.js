@@ -144,10 +144,14 @@ function writeInTdHTML (t, h, txt) {
 }
 
 function getEvents(aula,date){
+	aula="barcellona";
+	date="06/05/2013";
+	//data="aula="+aula+"&date="+date;
+	data='aula=barcellona&date=06/05/2013';
 	var sending = $.ajax({
 	  type: "POST",
 	  url: "cgi-bin/load.php",
-	  data: serialized
+	  data: data
 	});
 	sending.success(function(ret, textStatus) {
 	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
