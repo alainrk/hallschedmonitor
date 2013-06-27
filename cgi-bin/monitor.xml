@@ -42,25 +42,12 @@
 -->
 
 <aule>
-	<aula id="barcellona">
-			<date id="2002-09-24">
-					<event start="9:00" stop="10:00">
-						<title>SICUREZZA 1</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="16:00" stop="17:00">
-						<title>SICUREZZA 2</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="17:00" stop="19:00">
-						<title>SICUREZZA 3</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="21:00" stop="22:00">
-						<title>SICUREZZA 4</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-			</date>
-	</aula>
+<aule>
+	<aula id="newyork"/>
+	<aula id="granada"/>
+	<aula id="laboratorio"/>
+	<aula id="londra"/>			
+	<aula id="barcellona"/>
+</aule>
 </aule>
 

@@ -40,25 +40,33 @@
 >
 -->
 <aule>
-	<aula id="barcellona">
-			<date id="2002-09-24">
-					<event start="9:00" stop="10:00">
-						<title>SICUREZZA 1</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="16:00" stop="17:00">
-						<title>SICUREZZA 2</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="17:00" stop="19:00">
-						<title>SICUREZZA 3</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
-					<event start="21:00" stop="22:00">
-						<title>SICUREZZA 4</title>
-						<speaker>Paolo Rossi</speaker>
-					</event>
+<aule>
+	<aula id="newyork">
+		<date id="06/05/2013">
+			<event start="6:00pm" stop="10:30pm">
+				<title>asdasd</title>
+				<speaker>asdasd</speaker>
+				</event>
 			</date>
-	</aula>
+		</aula>
+	<aula id="granada">
+		<date id="06/05/2013">
+			<event start="6:00pm" stop="10:30pm">
+				<title>sdfsdfsdf</title>
+				<speaker>sdfsdfsdf</speaker>
+				</event>
+				<event start="6:00pm" stop="10:30pm">
+					<title>sdfsdfsdf</title>
+					<speaker>sdfsdfsdf</speaker>
+					</event>
+					<event start="6:00pm" stop="10:30pm">
+						<title>sdfsdfsdf</title>
+						<speaker>sdfsdfsdfsdfsdf</speaker>
+						</event>
+						</date>
+						</aula>
+	<aula id="laboratorio"/>
+	<aula id="londra"><date id="06/05/2013"><event start="6:00pm" stop="10:30pm"><title>wqweqwe</title><speaker>qweqweq</speaker></event></date></aula>			
+	<aula id="barcellona"><date id="06/05/2013"><event start="6:00pm" stop="10:30pm"><title>vbnvbnv</title><speaker>bnvbnvbn</speaker></event><event start="6:00pm" stop="10:30pm"><title>asdasd</title><speaker>asdasd</speaker></event></date></aula>
 </aule>
-<date id="06/20/2013"><event/></date>
+</aule>
