@@ -1,14 +1,16 @@
 $(document).ready(function() {
-	// DEBUG
+	
+	fillTableEvent(getToday());
+	
 	$('#title').val("Titolo Evento");
 	$('#speaker').val("Relatore Principale");
-	//
+	
 	$('#date').datepicker({ dateFormat: "yyyy-mm-dd" });
 	$('#date').datepicker({ gotoCurrent: true });
 	
-	$('.timepick').timepicker({'timeFormat': 'G:i'});
+	$('.timepick').timepicker({ 'timeFormat': 'H:i' });
+	/* DEBUG: Puoi togliere il setTime */
 	$('.timepick').timepicker('setTime', new Date());
-	$('.timepick').timepicker({ 'forceRoundTime': true });
 	$('.timepick').timepicker('option', {
 		'minTime': '06:00',
 		'maxTime': '23:45',
@@ -62,19 +64,35 @@ $(document).ready(function() {
 		event.preventDefault();
 		console.log($(this).serialize());
 		manageform($(this).serialize());
+		
 	});
+	
 });
 
-function writeInTd (t, h, txt) {
+/* There isn't a default way to get date in this format in js??? */
+function getToday(){
+	var today = new Date();
+	var G = today.getDate();
+	var M = ((today.getMonth()) + 1);
 
-	$("td[time='"+t+"'][hall='"+h+"']").text(txt);
+	if (G < 10){
+		var GG = "0" + today.getDate();
 	}
-	
-function writeInTdHTML (t, h, txt) {
-	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
-	$("td[time='"+t+"'][hall='"+h+"']").text(txt);
+	else{
+		var GG = today.getDate();
 	}
 
+	if (M < 10){
+		var MM = "0" + ((today.getMonth()) + 1);
+	}
+	else{
+		var MM = ((today.getMonth()) + 1);
+	}
+
+	var AAAA = today.getFullYear();
+	var date = GG + "/" + MM + "/" + AAAA;
+	return date;
+	}
 
 function manageform(data) {
 	//TODO: Send to php
@@ -91,7 +109,7 @@ function resetForm(id) {
 function sendData(serialized){
 	var sending = $.ajax({
 	  type: "POST",
-	  url: "cgi-bin/xml.php",
+	  url: "cgi-bin/store.php",
 	  data: serialized
 	});
 	sending.success(function(ret, textStatus) {
@@ -100,4 +118,42 @@ function sendData(serialized){
 	sending.fail(function(jqXHR, textStatus) {
 	  alert( "Request failed: " + textStatus );
 	});
+	}
+
+
+// Fill the table with the passed date, getting xml from php
+function fillTableEvent(dateTable){
+	// PHP request for the xml fragment with ALL events for today!!
+	var xmlFrag;
+	 
+	xmlFrag = getEvents("barcellona",dateTable);
+	
+	/*xmlFrag = getEvents("newyork",dateTable);
+	xmlFrag = getEvents("londra",dateTable);
+	xmlFrag = getEvents("granada",dateTable);
+	xmlFrag = getEvents("laboratorio",dateTable);*/
+	
+	writeInTdHTML ("p","laboratorio","<p>TEST</p><p>cristo<br/>12-45 asd qwe rty ahahahahahah</p>");
+	writeInTdHTML ("m","barcellona","<p>BAHBAH</p><p>prova<br/>01-4 asd qwe rty pino</p>");
+	writeInTdHTML ("s","laboratorio","<p>pRovasdlkfjsldkf sdflkjsdflksjdf</p><p>bah<br/>02-45 asd qwe rty sdfsdf</p>");
+}
+	
+function writeInTdHTML (t, h, txt) {
+	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
+	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
+}
+
+function getEvents(aula,date){
+	var sending = $.ajax({
+	  type: "POST",
+	  url: "cgi-bin/load.php",
+	  data: serialized
+	});
+	sending.success(function(ret, textStatus) {
+	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
+	});
+	sending.fail(function(jqXHR, textStatus) {
+	  alert( "Request failed: " + textStatus );
+	});
+	
 	}
