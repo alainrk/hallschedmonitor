@@ -126,8 +126,19 @@ function fillTableEvent(dateTable){
 	// PHP request for the xml fragment with ALL events for today!!
 	var xmlFrag;
 	 
-	xmlFrag = getEvents("barcellona",dateTable);
+	xmlFrag = getEvents('barcellona',dateTable);
 	
+	var xmlDoc = $.parseXML(xmlFrag);
+	var $xml = $(xmlDoc);alert("primo: "+$xml);alert("second: "+xmlFrag);
+    $title = $($xml).find('event').each(function(){
+		var start = $(this).attr('start');
+		var stop = $(this).attr('stop');
+		var title = $(this).find('title').text();
+		var speaker = $(this).find('title').text();
+		alert("Barcellona: "+start+stop+title+speaker);
+	});
+    
+    
 	/*xmlFrag = getEvents("newyork",dateTable);
 	xmlFrag = getEvents("londra",dateTable);
 	xmlFrag = getEvents("granada",dateTable);
@@ -145,16 +156,20 @@ function writeInTdHTML (t, h, txt) {
 
 function getEvents(aula,date){
 	aula="barcellona";
-	date="06/05/2013";
+	date="06/12/2013";
 	//data="aula="+aula+"&date="+date;
-	data='aula=barcellona&date=06/05/2013';
+	data='aula=barcellona&date=06/12/2013';
 	var sending = $.ajax({
+	headers: { 
+        Accept: "Content-type: application/xml; charset=UTF-8"
+    },
 	  type: "POST",
 	  url: "cgi-bin/load.php",
 	  data: data
 	});
 	sending.success(function(ret, textStatus) {
 	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
+	  return ret;
 	});
 	sending.fail(function(jqXHR, textStatus) {
 	  alert( "Request failed: " + textStatus );

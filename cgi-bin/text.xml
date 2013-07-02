@@ -41,32 +41,10 @@
 -->
 <aule>
 <aule>
-	<aula id="newyork">
-		<date id="06/05/2013">
-			<event start="6:00pm" stop="10:30pm">
-				<title>asdasd</title>
-				<speaker>asdasd</speaker>
-				</event>
-			</date>
-		</aula>
-	<aula id="granada">
-		<date id="06/05/2013">
-			<event start="6:00pm" stop="10:30pm">
-				<title>sdfsdfsdf</title>
-				<speaker>sdfsdfsdf</speaker>
-				</event>
-				<event start="6:00pm" stop="10:30pm">
-					<title>sdfsdfsdf</title>
-					<speaker>sdfsdfsdf</speaker>
-					</event>
-					<event start="6:00pm" stop="10:30pm">
-						<title>sdfsdfsdf</title>
-						<speaker>sdfsdfsdfsdfsdf</speaker>
-						</event>
-						</date>
-						</aula>
+	<aula id="newyork"></aula>
+	<aula id="granada"></aula>
 	<aula id="laboratorio"/>
-	<aula id="londra"><date id="06/05/2013"><event start="6:00pm" stop="10:30pm"><title>wqweqwe</title><speaker>qweqweq</speaker></event></date></aula>			
-	<aula id="barcellona"><date id="06/05/2013"><event start="6:00pm" stop="10:30pm"><title>vbnvbnv</title><speaker>bnvbnvbn</speaker></event><event start="6:00pm" stop="10:30pm"><title>asdasd</title><speaker>asdasd</speaker></event></date></aula>
+	<aula id="londra"></aula>			
+	<aula id="barcellona"><date id="06/12/2013"><event start="19:57" stop="19:57"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="19:57" stop="19:57"><title>sdfsdf</title><speaker>sdfsdfsdf</speaker></event><event start="19:57" stop="19:57"><title/><speaker>dsfsdf</speaker></event><event start="19:57" stop="19:57"><title>sdf</title><speaker/></event></date><date id="06/04/2013"><event start="13:19" stop="13:19"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="13:19" stop="13:19"><title>qweqweqweq</title><speaker>weqweqweqweqweqwe</speaker></event></date><date id="06/28/2013"><event start="18:49" stop="18:49"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="06/05/2013"><event start="6:00pm" stop="10:30pm"><title>vbnvbnv</title><speaker>bnvbnvbn</speaker></event><event start="6:00pm" stop="10:30pm"><title>asdasd</title><speaker>asdasd</speaker></event><event start="18:53" stop="18:53"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="07/16/2013"><event start="06:16" stop="06:16"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date></aula>
 </aule>
 </aule>
