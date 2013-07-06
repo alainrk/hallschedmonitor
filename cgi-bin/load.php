@@ -21,8 +21,9 @@ else {
 
 $query = '//aule/aula[@id="'.$aula.'"]/date[@id="'.$date.'"]';
 $dateNode = $xpathDOM->query($query);
-if ($dateNode->length != 1) {
-	echo "Error: there is not the correct data for hall or date in xml!";
+if ($dateNode->length == 0) {
+	header('Content-type: text/plain');
+	print "0";
 	die();
 	}
 $dateNode = $dateNode->item(0);
@@ -32,7 +33,48 @@ $domNode = $xml->importNode($dateNode, true);
 $xml->appendChild($domNode);
 
 // To save and send
-header ("Content-type: application/xml; charset=UTF-8");
+//header ("Content-type: application/xml; charset=UTF-8");
+header('Content-type: text/plain');
 print $xml->saveXML();
 die();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

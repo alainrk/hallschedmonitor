@@ -123,20 +123,45 @@ function sendData(serialized){
 
 // Fill the table with the passed date, getting xml from php
 function fillTableEvent(dateTable){
-	// PHP request for the xml fragment with ALL events for today!!
-	var xmlFrag = getEvents('barcellona',dateTable);
-alert(xmlFrag);
-	var xmlDoc = $.parseXML(xmlFrag);
-	var xml = $(xmlDoc);
-	//console.log("primo: "+$xml+" "+"second: "+xmlDoc);
-	//alert("primo: "+$xml);alert("second: "+xmlFrag);
-    $title = xml.find('event').each(function(){
-		var start = $(this).attr('start');
-		var stop = $(this).attr('stop');
-		var title = $(this).find('title').text();
-		var speaker = $(this).find('title').text();
+	var xmlFrag;
+	var xmlDoc;
+	var xml;
+	var start;
+	var stop;
+	var title;
+	var speaker;
+	var arrayTime;
+	var hour;
+	var mps; // Mattina, pomeriggio, sera
+	var auleArray = ['barcellona','newyork','londra','granada','laboratorio'];
+
+	for (var i = 0; i < auleArray.length; i++) {
+		xmlFrag = getEvents(auleArray[i],dateTable);
+		if (xmlFrag == "0") 
+			continue; // No events for today in this hall!
+		xmlDoc = $.parseXML(xmlFrag);
+		xml = $(xmlDoc);
+
+		/*$title = */xml.find('event').each(function(){
+		start = $(this).attr('start');
+		stop = $(this).attr('stop');
+		title = $(this).find('title').text();
+		speaker = $(this).find('title').text();
+		arrayTime = start.split(':');
+		hour = arrayTime[0];
+		if (hour <= 12) mps = 'm';
+		else if (hour <= 19) mps = 'p';
+		else mps = 's';
+		writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
 		//alert("Barcellona: "+start+stop+title+speaker);
 	});
+
+	}
+	// PHP request for the xml fragment with ALL events for today!!
+
+	//console.log("primo: "+$xml+" "+"second: "+xmlDoc);
+	//alert("primo: "+$xml);alert("second: "+xmlFrag);
+
     
     
 	/*xmlFrag = getEvents("newyork",dateTable);
@@ -144,19 +169,20 @@ alert(xmlFrag);
 	xmlFrag = getEvents("granada",dateTable);
 	xmlFrag = getEvents("laboratorio",dateTable);*/
 	
-	writeInTdHTML ("p","laboratorio","<p>TEST</p><p>cristo<br/>12-45 asd qwe rty ahahahahahah</p>");
+	/*writeInTdHTML ("p","laboratorio","<p>TEST</p><p>cristo<br/>12-45 asd qwe rty ahahahahahah</p>");
 	writeInTdHTML ("m","barcellona","<p>BAHBAH</p><p>prova<br/>01-4 asd qwe rty pino</p>");
-	writeInTdHTML ("s","laboratorio","<p>pRovasdlkfjsldkf sdflkjsdflksjdf</p><p>bah<br/>02-45 asd qwe rty sdfsdf</p>");
+	writeInTdHTML ("s","laboratorio","<p>pRovasdlkfjsldkf sdflkjsdflksjdf</p><p>bah<br/>02-45 asd qwe rty sdfsdf</p>");*/
 }
 	
 
 function getEvents(aula,date){
 	aula="barcellona";
-	date="06/12/2013";
+	date="09/12/2011";
 	xmlFrag="";
 	success=0;
+	//TODO Qui prendere i dati dai parametri 
 	//data="aula="+aula+"&date="+date;
-	data='aula=barcellona&date=06/12/2013';
+	data='aula=barcellona&date=09/12/2013';
 	var sending = $.ajax({
       async: false,
 	  type: "POST",
@@ -166,11 +192,11 @@ function getEvents(aula,date){
 	sending.success(function(ret, textStatus) {
 	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
 	  xmlFrag = ret;
-	  success=1;
+	  success = 1;
 	});
 	sending.fail(function(jqXHR, textStatus) {
 	  console.log( "Request failed: " + textStatus );
-	  success=0;
+	  success = 0;
 	});
 	
 	if (success == 1)
