@@ -124,18 +124,18 @@ function sendData(serialized){
 // Fill the table with the passed date, getting xml from php
 function fillTableEvent(dateTable){
 	// PHP request for the xml fragment with ALL events for today!!
-	var xmlFrag;
-	 
-	xmlFrag = getEvents('barcellona',dateTable);
-	
+	var xmlFrag = getEvents('barcellona',dateTable);
+alert(xmlFrag);
 	var xmlDoc = $.parseXML(xmlFrag);
-	var $xml = $(xmlDoc);alert("primo: "+$xml);alert("second: "+xmlFrag);
-    $title = $($xml).find('event').each(function(){
+	var xml = $(xmlDoc);
+	//console.log("primo: "+$xml+" "+"second: "+xmlDoc);
+	//alert("primo: "+$xml);alert("second: "+xmlFrag);
+    $title = xml.find('event').each(function(){
 		var start = $(this).attr('start');
 		var stop = $(this).attr('stop');
 		var title = $(this).find('title').text();
 		var speaker = $(this).find('title').text();
-		alert("Barcellona: "+start+stop+title+speaker);
+		//alert("Barcellona: "+start+stop+title+speaker);
 	});
     
     
@@ -149,12 +149,50 @@ function fillTableEvent(dateTable){
 	writeInTdHTML ("s","laboratorio","<p>pRovasdlkfjsldkf sdflkjsdflksjdf</p><p>bah<br/>02-45 asd qwe rty sdfsdf</p>");
 }
 	
-function writeInTdHTML (t, h, txt) {
-	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
-	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
-}
 
 function getEvents(aula,date){
+	aula="barcellona";
+	date="06/12/2013";
+	xmlFrag="";
+	success=0;
+	//data="aula="+aula+"&date="+date;
+	data='aula=barcellona&date=06/12/2013';
+	var sending = $.ajax({
+      async: false,
+	  type: "POST",
+	  url: "cgi-bin/load.php",
+	  data: data
+	});
+	sending.success(function(ret, textStatus) {
+	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
+	  xmlFrag = ret;
+	  success=1;
+	});
+	sending.fail(function(jqXHR, textStatus) {
+	  console.log( "Request failed: " + textStatus );
+	  success=0;
+	});
+	
+	if (success == 1)
+		return xmlFrag;
+	else return 0;
+
+	}
+
+	/*function xmlToString(xmlData) {
+    var xmlString;
+    //IE
+    if (window.ActiveXObject){
+        xmlString = xmlData.xml;
+    }
+    // code for Mozilla, Firefox, Opera, etc.
+    else{
+        xmlString = (new XMLSerializer()).serializeToString(xmlData);
+    }
+    return xmlString;
+} */
+
+/*function getEventsXML(aula,date){
 	aula="barcellona";
 	date="06/12/2013";
 	//data="aula="+aula+"&date="+date;
@@ -163,16 +201,23 @@ function getEvents(aula,date){
 	headers: { 
         Accept: "Content-type: application/xml; charset=UTF-8"
     },
+      async: false,
 	  type: "POST",
 	  url: "cgi-bin/load.php",
 	  data: data
 	});
 	sending.success(function(ret, textStatus) {
-	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
+	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
 	  return ret;
 	});
 	sending.fail(function(jqXHR, textStatus) {
-	  alert( "Request failed: " + textStatus );
+	  console.log( "Request failed: " + textStatus );
 	});
 	
-	}
+	}*/
+
+
+function writeInTdHTML (t, h, txt) {
+	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
+	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
+}
