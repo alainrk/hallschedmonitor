@@ -5,7 +5,8 @@ $(document).ready(function() {
 	$('#title').val("Titolo Evento");
 	$('#speaker').val("Relatore Principale");
 	
-	$('#date').datepicker({ dateFormat: "yyyy-mm-dd" });
+	//$('#date').datepicker({ dateFormat: "yy-mm-dd" });
+	//$('#date').datepicker( "option", "dateFormat", "yy-mm-dd" );
 	$('#date').datepicker({ gotoCurrent: true });
 	
 	$('.timepick').timepicker({ 'timeFormat': 'H:i' });
@@ -62,8 +63,22 @@ $(document).ready(function() {
 			}
 		});
 		event.preventDefault();
-		console.log($(this).serialize());
-		manageform($(this).serialize());
+				
+		/* Hack for stupidity of jquery datepicker, it's impossible to change dateformat! */
+		//var serialized = $("#form :input[id!=date]").serialize();  Without date
+		var uncorrectDateFormat = $("#date").val();
+		var uncorrectDateFormatArray = uncorrectDateFormat.split('/');
+		var dd = uncorrectDateFormatArray[1];
+		var mm = uncorrectDateFormatArray[0];
+		var yyyy = uncorrectDateFormatArray[2];
+		var correctDateFormat = yyyy+"/"+mm+"/"+dd;
+		$("#date").val(correctDateFormat);
+		var serialized = $(this).serialize();
+		//serialized += '&'+'date='+correctDateFormat;
+
+		alert(serialized);
+		console.log(serialized);
+		manageform(serialized);
 		
 	});
 	
@@ -90,7 +105,7 @@ function getToday(){
 	}
 
 	var AAAA = today.getFullYear();
-	var date = GG + "/" + MM + "/" + AAAA;
+	var date = AAAA + "/" + MM + "/" + GG;
 	return date;
 	}
 
@@ -176,13 +191,13 @@ function fillTableEvent(dateTable){
 	
 
 function getEvents(aula,date){
-	aula="barcellona";
-	date="09/12/2011";
+	//aula="barcellona";
+	//date="2013/07/07";
 	xmlFrag="";
 	success=0;
-	//TODO Qui prendere i dati dai parametri 
-	//data="aula="+aula+"&date="+date;
-	data='aula=barcellona&date=09/12/2013';
+	data="aula="+aula+"&date="+date;
+	console.log(data);
+	
 	var sending = $.ajax({
       async: false,
 	  type: "POST",
