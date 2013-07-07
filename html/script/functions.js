@@ -28,10 +28,6 @@ $(document).ready(function() {
 				date: "required",
 				start: "required",
 				stop: "required",
-				username: {
-					required: true,
-					minlength: 2
-				},
 				title: {
 					required: true,
 					minlength: 2,
@@ -41,16 +37,7 @@ $(document).ready(function() {
 					required: false,
 					minlength: 2,
 					maxlength: 50
-				},
-				email: {
-					required: true,
-					email: true
-				},
-				topic: {
-					required: "#newsletter:checked",
-					minlength: 2
-				},
-				agree: "required"
+				}
 			},
 			messages: {
 				date: "Inserire una data",
@@ -64,8 +51,7 @@ $(document).ready(function() {
 		});
 		event.preventDefault();
 				
-		/* Hack for stupidity of jquery datepicker, it's impossible to change dateformat! */
-		//var serialized = $("#form :input[id!=date]").serialize();  Without date
+		/* Hack for stupid datepicker, it's impossible to change date format! */
 		var uncorrectDateFormat = $("#date").val();
 		var uncorrectDateFormatArray = uncorrectDateFormat.split('/');
 		var dd = uncorrectDateFormatArray[1];
@@ -74,12 +60,14 @@ $(document).ready(function() {
 		var correctDateFormat = yyyy+"/"+mm+"/"+dd;
 		$("#date").val(correctDateFormat);
 		var serialized = $(this).serialize();
-		//serialized += '&'+'date='+correctDateFormat;
 
 		alert(serialized);
 		console.log(serialized);
 		manageform(serialized);
 		
+		/* Gallery */
+		Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+		Galleria.run('#galleria');
 	});
 	
 });
@@ -168,25 +156,9 @@ function fillTableEvent(dateTable){
 		else if (hour <= 19) mps = 'p';
 		else mps = 's';
 		writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
-		//alert("Barcellona: "+start+stop+title+speaker);
 	});
 
 	}
-	// PHP request for the xml fragment with ALL events for today!!
-
-	//console.log("primo: "+$xml+" "+"second: "+xmlDoc);
-	//alert("primo: "+$xml);alert("second: "+xmlFrag);
-
-    
-    
-	/*xmlFrag = getEvents("newyork",dateTable);
-	xmlFrag = getEvents("londra",dateTable);
-	xmlFrag = getEvents("granada",dateTable);
-	xmlFrag = getEvents("laboratorio",dateTable);*/
-	
-	/*writeInTdHTML ("p","laboratorio","<p>TEST</p><p>cristo<br/>12-45 asd qwe rty ahahahahahah</p>");
-	writeInTdHTML ("m","barcellona","<p>BAHBAH</p><p>prova<br/>01-4 asd qwe rty pino</p>");
-	writeInTdHTML ("s","laboratorio","<p>pRovasdlkfjsldkf sdflkjsdflksjdf</p><p>bah<br/>02-45 asd qwe rty sdfsdf</p>");*/
 }
 	
 
@@ -219,6 +191,13 @@ function getEvents(aula,date){
 	else return 0;
 
 	}
+
+
+function writeInTdHTML (t, h, txt) {
+	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
+	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
+}
+
 
 	/*function xmlToString(xmlData) {
     var xmlString;
@@ -256,9 +235,3 @@ function getEvents(aula,date){
 	});
 	
 	}*/
-
-
-function writeInTdHTML (t, h, txt) {
-	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
-	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
-}
