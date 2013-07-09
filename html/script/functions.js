@@ -61,7 +61,6 @@ $(document).ready(function() {
 		$("#date").val(correctDateFormat);
 		var serialized = $(this).serialize();
 
-		alert(serialized);
 		console.log(serialized);
 		manageform(serialized);
 		
@@ -116,10 +115,10 @@ function sendData(serialized){
 	  data: serialized
 	});
 	sending.success(function(ret, textStatus) {
-	  alert("Dati salvati con successo: "+ret+", status: "+textStatus);
+	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
 	});
 	sending.fail(function(jqXHR, textStatus) {
-	  alert( "Request failed: " + textStatus );
+	  console.log( "Request failed: " + textStatus );
 	});
 	}
 
