@@ -148,13 +148,14 @@ function fillTableEvent(dateTable){
 		start = $(this).attr('start');
 		stop = $(this).attr('stop');
 		title = $(this).find('title').text();
-		speaker = $(this).find('title').text();
+		speaker = $(this).find('speaker').text();
 		arrayTime = start.split(':');
 		hour = arrayTime[0];
 		if (hour <= 12) mps = 'm';
 		else if (hour <= 19) mps = 'p';
 		else mps = 's';
-		writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
+		writeInTdHTML (mps,auleArray[i],"<span style='font:bold;color:red'>"+start+" - "+stop+"</span><br/><span style='font:bold'>"+title+"</span><br/><span>"+speaker+"</span><br/>");
+		//writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
 	});
 
 	}
@@ -194,7 +195,7 @@ function getEvents(aula,date){
 
 function writeInTdHTML (t, h, txt) {
 	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
-	$("td[time='"+t+"'][hall='"+h+"']").html(txt);
+	$("td[time='"+t+"'][hall='"+h+"']").append(txt);
 }
 
 

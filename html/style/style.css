@@ -58,11 +58,11 @@ div#content-monitor {
 }
 
 div#image-div{
-	width:auto;
+	width:50%;
 	height: auto;
 	display: inline;
 	position:relative;
-	float:left;
+	float:right;
 	margin-right:10px;
 	border:2px;
 	border-color: black;
@@ -71,12 +71,14 @@ div#image-div{
 }
 
 div#table-div {
-	width:auto;
+	width:100%;
 	height: auto;
 	display: inline;
 	position:relative;
 	margin-left:10px;
-	float:right;
+	margin-right:10px;
+	float:left;
+	overflow:auto;
 	border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px;
 }
@@ -158,4 +160,6 @@ th.specalt {
 	color: #797268;
 }
 
-#galleria{ width: 700px; height: 400px; background: #000 }
+#galleria{ width: 40%; height: 400px; background: #000;}
+
+.flex {max-width: 100%}
