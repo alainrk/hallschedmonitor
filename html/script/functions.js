@@ -143,19 +143,30 @@ function fillTableEvent(dateTable){
 			continue; // No events for today in this hall!
 		xmlDoc = $.parseXML(xmlFrag);
 		xml = $(xmlDoc);
+		
+		// TEST Order for hour
+		var events = xml.find('event');
+		events.sort(function(a, b){
+			var a_time = $(a).attr('start');
+			var b_time = $(b).attr('start');
+			var a_timeArr = a_time.split(':');
+			var b_timeArr = b_time.split(':');
+			return (parseInt(a_timeArr[0] - b_timeArr[0]));
+		});
 
-		/*$title = */xml.find('event').each(function(){
-		start = $(this).attr('start');
-		stop = $(this).attr('stop');
-		title = $(this).find('title').text();
-		speaker = $(this).find('speaker').text();
-		arrayTime = start.split(':');
-		hour = arrayTime[0];
-		if (hour <= 12) mps = 'm';
-		else if (hour <= 19) mps = 'p';
-		else mps = 's';
-		writeInTdHTML (mps,auleArray[i],"<span style='font:bold;color:red'>"+start+" - "+stop+"</span><br/><span style='font:bold'>"+title+"</span><br/><span>"+speaker+"</span><br/>");
-		//writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
+		//xml.find('event').each(function(){
+		events.each(function(){
+			start = $(this).attr('start');
+			stop = $(this).attr('stop');
+			title = $(this).find('title').text();
+			speaker = $(this).find('speaker').text();
+			arrayTime = start.split(':');
+			hour = arrayTime[0];
+			if (hour <= 12) mps = 'm';
+			else if (hour <= 19) mps = 'p';
+			else mps = 's';
+			writeInTdHTML (mps,auleArray[i],"<span style='font:bold;color:red'>"+start+" - "+stop+"</span><br/><span style='font:bold'>"+title+"</span><br/><span>"+speaker+"</span><br/>");
+			//writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
 	});
 
 	}
