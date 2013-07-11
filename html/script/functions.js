@@ -69,6 +69,8 @@ $(document).ready(function() {
 		Galleria.run('#galleria');
 	});
 	
+	/* TODO: Timeout per cambiare background css immagine */
+	
 });
 
 /* There isn't a default way to get date in this format in js??? */
