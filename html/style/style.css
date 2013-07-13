@@ -128,6 +128,7 @@ th.nobg {
 	background: none;
 }
 
+
 td {
 	text-align: central;
 	border-right: 1px solid #C1DAD7;
@@ -135,7 +136,8 @@ td {
 	background: #fff;
 	padding: 6px 6px 6px 6px;
 	color: #4f6b72;
-	height: 120px;
+	height:auto;
+	width:auto;
 }
 
 
