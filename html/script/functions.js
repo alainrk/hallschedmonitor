@@ -119,6 +119,8 @@ function sendData(serialized){
 	});
 	sending.success(function(ret, textStatus) {
 	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
+	  clearTableEvent()
+	  fillTableEvent(getToday());
 	});
 	sending.fail(function(jqXHR, textStatus) {
 	  console.log( "Request failed: " + textStatus );
@@ -212,6 +214,11 @@ function writeInTdHTML (t, h, txt) {
 	$("td[time='"+t+"'][hall='"+h+"']").append(txt);
 }
 
+function clearTableEvent(){
+	$("td[time='m']").html("");
+	$("td[time='p']").html("");
+	$("td[time='s']").html("");
+}
 
 	/*function xmlToString(xmlData) {
     var xmlString;
