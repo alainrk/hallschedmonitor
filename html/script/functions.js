@@ -63,13 +63,14 @@ $(document).ready(function() {
 
 		console.log(serialized);
 		manageform(serialized);
-		
-		/* Gallery */
-		Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
-		Galleria.run('#galleria');
 	});
 	
-	/* TODO: Timeout per cambiare background css immagine */
+	// Gallery
+	setInterval(function() {
+		rand = Math.floor(Math.random() * 4) + 1;
+		$("div#back-image").css("background-image", "url(../images/slide_"+rand+".jpg)");
+		//alert("url(../images/slide_"+rand+".jpg)");
+	}, 5000);
 	
 });
 

@@ -162,7 +162,7 @@ th.specalt {
 	color: #797268;
 }
 
-div.back-image {
+div#back-image {
  width:28em;
  height:28em;
  /*border:1px solid black;*/
