@@ -1,4 +1,4 @@
-var imageArray;
+var imageArray="";
 
 $(document).ready(function() {
 	
@@ -71,27 +71,32 @@ $(document).ready(function() {
 	
 	// Gallery
 	setInterval(function() {
-		rand = Math.floor(Math.random() * 4) + 1;
-		$("div#back-image").css("background-image", "url(../images/slide_"+rand+".jpg)");
-		//alert("url(../images/slide_"+rand+".jpg)");
-	}, 5000);
+		//rand = Math.floor(Math.random() * 4) + 1;
+		//$("div#back-image").css("background-image", "url(../images/slide_"+rand+".jpg)");
+		if (imageArray != "") {
+			rand = Math.floor(Math.random() * imageArray.length) + 1;
+			filerand = imageArray[rand];
+			$("div#back-image").css("background-image", "url(../images/"+filerand+")");
+		}
+	}, 3000);
 	
 });
 
 function getImageArray(){
+	var images;
 	var call = $.ajax({
       async: false,
 	  type: "POST",
 	  url: "cgi-bin/imagelist.php",
-	  data: data
 	});
 	call.success(function(ret, textStatus) {
 		console.log("Image array Request success: "+ret+", status: "+textStatus);
-		imageArray = ret.split('&'); // GLOBAL
+		images = ret;
 	});
 	call.fail(function(jqXHR, textStatus) {
 		console.log( "Image array Request failed: " + textStatus );
 	});
+	return images.split('&');
 	}
 
 /* There isn't a default way to get date in this format in js??? */

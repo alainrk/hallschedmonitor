@@ -11,6 +11,10 @@ if ($handle = opendir('../html/images/')) {
     closedir($handle);
 }
 
+$list = substr($list, 0, strlen($list)-1);
+
+
+
 header('Content-type: text/plain');
 print $list;
 die();
