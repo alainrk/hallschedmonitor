@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
 <!ENTITY agrave 	"&#224;">
 <!ENTITY egrave 	"&#232;">
 <!ENTITY eacute 	"&#233;">
@@ -21,16 +24,14 @@
 >
 <!ELEMENT aule 	((aula)+) >
 
-<!ELEMENT aula 		(scheduling) >
+<!ELEMENT aula 		((date)+) >
 <!ATTLIST aula
 	id    ID     #REQUIRED
 >
 
-<!ELEMENT scheduling 		((date)+) >
-
 <!ELEMENT date 		((event)*) >
 <!ATTLIST date
-	id    ID     #REQUIRED <!--- NON SONO SICURO CHE CI VOGLIA UN ID --->
+	id    ID     #REQUIRED
 >
 
 <!ELEMENT event 		(title, speaker) >
@@ -38,11 +39,10 @@
 	start  	CDATA  	#REQUIRED
 	stop	CDATA	#REQUIRED
 >
+-->
 
-<?xml version="1.0" encoding="UTF-8"?>
 <aule>
 	<aula id="barcellona">
-		<scheduling>
 			<date id="2002-09-24">
 					<event start="9:00" stop="10:00">
 						<title>SICUREZZA 1</title>
@@ -61,7 +61,6 @@
 						<speaker>Paolo Rossi</speaker>
 					</event>
 			</date>
-		</scheduling>
 	</aula>
 </aule>
 

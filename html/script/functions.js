@@ -1,6 +1,10 @@
+var imageArray;
+
 $(document).ready(function() {
 	
 	fillTableEvent(getToday());
+	
+	imageArray = getImageArray();
 	
 	$('#title').val("Titolo Evento");
 	$('#speaker').val("Relatore Principale");
@@ -73,6 +77,22 @@ $(document).ready(function() {
 	}, 5000);
 	
 });
+
+function getImageArray(){
+	var call = $.ajax({
+      async: false,
+	  type: "POST",
+	  url: "cgi-bin/imagelist.php",
+	  data: data
+	});
+	call.success(function(ret, textStatus) {
+		console.log("Image array Request success: "+ret+", status: "+textStatus);
+		imageArray = ret.split('&'); // GLOBAL
+	});
+	call.fail(function(jqXHR, textStatus) {
+		console.log( "Image array Request failed: " + textStatus );
+	});
+	}
 
 /* There isn't a default way to get date in this format in js??? */
 function getToday(){

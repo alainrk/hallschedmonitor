@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!ENTITY agrave 	"&#224;">
+<!ENTITY egrave 	"&#232;">
+<!ENTITY eacute 	"&#233;">
+<!ENTITY igrave 	"&#236;">
+<!ENTITY ograve 	"&#242;">
+<!ENTITY ugrave 	"&#249;">
+
+<!ENTITY Agrave 	"&#192;">
+<!ENTITY Egrave 	"&#200;">
+<!ENTITY Eacute 	"&#201;">
+<!ENTITY Igrave 	"&#204;">
+<!ENTITY Ograve 	"&#210;">
+<!ENTITY Ugrave 	"&#217;">
+		
+
+<!ENTITY % text_and_entity "#PCDATA | entity" >
+
+<!ELEMENT entity 		EMPTY >
+<!ATTLIST entity
+	name  CDATA  #REQUIRED
+>
+<!ELEMENT aule 	((aula)+) >
+
+<!ELEMENT aula 		((date)+) >
+<!ATTLIST aula
+	id    ID     #REQUIRED
+>
+
+<!ELEMENT date 		((event)*) >
+<!ATTLIST date
+	id    ID     #REQUIRED
+>
+
+<!ELEMENT event 		(title, speaker) >
+<!ATTLIST closing
+	start  	CDATA  	#REQUIRED
+	stop	CDATA	#REQUIRED
+>
+-->
+<aule>
+	<aula id="newyork"><date id="2013/07/07"><event start="10:30" stop="11:59"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="2013/07/13"><event start="07:30" stop="07:30"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="09:45" stop="11:00"><title>asd</title><speaker>asd</speaker></event></date></aula>
+	<aula id="granada"><date id="2013/07/07"><event start="08:30" stop="11:58"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="17:00" stop="20:45"><title>werwerwer</title><speaker>234234234</speaker></event><event start="23:15" stop="23:45"><title>234234234</title><speaker>234234234234234</speaker></event></date><date id="2013/07/13"><event start="06:40" stop="10:45"><title>asd</title><speaker>asdasd</speaker></event><event start="14:30" stop="16:30"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date></aula>
+	<aula id="laboratorio"><date id="2013/07/07"><event start="15:30" stop="19:00"><title>sdfsrwer</title><speaker>werwerwer</speaker></event></date><date id="2013/07/10"><event start="07:16" stop="07:16"><title>fdgdf</title><speaker>dfgdfg</speaker></event><event start="07:16" stop="07:16"><title>dfgdfg</title><speaker>dfgdfgdfgdfg</speaker></event><event start="11:00" stop="07:16"><title>dfgdfg</title><speaker>dfgdfgdfg</speaker></event></date><date id="2013/07/13"><event start="21:15" stop="23:45"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="07:18" stop="07:18"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="11:30" stop="12:30"><title>dgrtfg</title><speaker>hvghtygvb</speaker></event><event start="12:15" stop="12:30"><title>cfbch v</title><speaker>h vbm bnm</speaker></event><event start="14:00" stop="14:45"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date></aula>
+	<aula id="londra"><date id="2013/07/07"><event start="23:15" stop="23:45"><title>sfdfewferfer</title><speaker>grtdgertg</speaker></event></date><date id="2013/07/10"><event start="07:16" stop="07:16"><title>dfgdfgdfg</title><speaker>dfgdfg</speaker></event></date><date id="2013/07/13"><event start="07:19" stop="07:19"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="14:00" stop="15:30"><title>asdas</title><speaker>asdasdas</speaker></event><event start="22:15" stop="23:30"><title>asdasdasd</title><speaker>asdasdasd</speaker></event></date></aula>			
+	<aula id="barcellona"><date id="2013/07/02"><event start="11:55" stop="11:55"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="2013/07/15"><event start="18:01" stop="18:01"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="2013/07/07"><event start="11:55" stop="15:00"><title>sdf</title><speaker>sdfsdfsdfsdf</speaker></event><event start="11:56" stop="16:15"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="18:04" stop="18:04"><title/><speaker/></event></date><date id="2013/07/09"><event start="19:42" stop="19:42"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="17:45" stop="21:20"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="16:45" stop="21:41"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="2013/07/10"><event start="07:16" stop="07:16"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="11:00" stop="07:16"><title>dfgdfg</title><speaker>dfgdfgd</speaker></event><event start="11:00" stop="13:00"><title>54645</title><speaker>rtyrtyrty</speaker></event></date><date id="undefined//undefined"><event start="18:04" stop="18:04"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="19:41" stop="19:41"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date><date id="2013/07/11"><event start="19:34" stop="19:34"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="19:41" stop="19:41"><title/><speaker/></event></date><date id="2013/07/13"><event start="06:40" stop="06:40"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event><event start="19:30" stop="23:30"><title>Titolo Evento</title><speaker>Relatore Principale</speaker></event></date></aula>
+</aule>
