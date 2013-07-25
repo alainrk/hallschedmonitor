@@ -51,18 +51,19 @@ input{
 }
 
 div#content-monitor {
+	text-align: center;
 	height: auto !important;
 	min-height: 250px;
 	overflow: hidden;
-	/*clear:both;*/
 }
 
 div#image-div{
-	width:auto;
+	display: none;
+	z-index:0;
+	width:200em;
 	height: auto;
-	display: inline;
-	position:relative;
-	float:right;
+	position:absolute;
+	/*float:right;*/
 	margin-right:10px;
 	border:2px;
 	border-color: black;
@@ -71,13 +72,14 @@ div#image-div{
 }
 
 div#table-div {
-	width:60%;
+	display:block;
+	z-index:1;
+	width:100%;
 	height: auto;
-	display: inline;
-	position:relative;
+	position:absolute;
 	margin-left:3px;
 	margin-right:3px;
-	float:left;
+	/*float:left;*/
 	overflow:auto;
 	border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px;

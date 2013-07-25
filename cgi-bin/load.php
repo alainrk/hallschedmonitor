@@ -1,7 +1,9 @@
 <?php
 
 $aula = $_POST["aula"];
-$date = $_POST["date"];
+$day = $_POST["day"];
+$month = $_POST["month"];
+$year = $_POST["year"];
 
 $xmlDoc = new DOMDocument();
 $xmlDoc->load("text.xml");
@@ -19,7 +21,8 @@ else {
 	}
 */
 
-$query = '//aule/aula[@id="'.$aula.'"]/date[@id="'.$date.'"]';
+//$query = '//aule/aula[@id="'.$aula.'"]/date[@day="'.$day.' and @month='.$month.' and @year='.$year.'"]';
+$query = '//aule/aula[@id="'.$aula.'"]/date[@day="'.$day.'"][@month="'.$month.'"][@year="'.$year.'"]';
 $dateNode = $xpathDOM->query($query);
 if ($dateNode->length == 0) {
 	header('Content-type: text/plain');

@@ -74,7 +74,7 @@ $(document).ready(function() {
 		//rand = Math.floor(Math.random() * 4) + 1;
 		//$("div#back-image").css("background-image", "url(../images/slide_"+rand+".jpg)");
 		if (imageArray != "") {
-			rand = Math.floor(Math.random() * imageArray.length) + 1;
+			rand = Math.floor(Math.random() * imageArray.length);
 			filerand = imageArray[rand];
 			$("div#back-image").css("background-image", "url(../images/"+filerand+")");
 		}
@@ -125,7 +125,6 @@ function getToday(){
 	}
 
 function manageform(data) {
-	//TODO: Send to php
 	resetForm("addEvent");
 	sendData(data);
 	}
@@ -144,7 +143,7 @@ function sendData(serialized){
 	});
 	sending.success(function(ret, textStatus) {
 	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
-	  clearTableEvent()
+	  clearTableEvent(); // ;;;
 	  fillTableEvent(getToday());
 	});
 	sending.fail(function(jqXHR, textStatus) {
@@ -196,7 +195,6 @@ function fillTableEvent(dateTable){
 			else if (hour <= 19) mps = 'p';
 			else mps = 's';
 			writeInTdHTML (mps,auleArray[i],"<span style='font:bold;color:red'>"+start+" - "+stop+"</span><br/><span style='font:bold'>"+title+"</span><br/><span>"+speaker+"</span><br/>");
-			//writeInTdHTML (mps,auleArray[i],"<p>"+title+"</p><p>"+speaker+"<br/>"+start+" - "+stop+"</p>");
 	});
 
 	}
@@ -235,7 +233,6 @@ function getEvents(aula,date){
 
 
 function writeInTdHTML (t, h, txt) {
-	//EXAMPLE: writeInTdHTML("p","laboratorio","<p>TEST</p><p>fessa<br/>12-45 asd qwe rty ahahahahahah</p>");
 	$("td[time='"+t+"'][hall='"+h+"']").append(txt);
 }
 
@@ -244,40 +241,3 @@ function clearTableEvent(){
 	$("td[time='p']").html("");
 	$("td[time='s']").html("");
 }
-
-	/*function xmlToString(xmlData) {
-    var xmlString;
-    //IE
-    if (window.ActiveXObject){
-        xmlString = xmlData.xml;
-    }
-    // code for Mozilla, Firefox, Opera, etc.
-    else{
-        xmlString = (new XMLSerializer()).serializeToString(xmlData);
-    }
-    return xmlString;
-} */
-
-/*function getEventsXML(aula,date){
-	aula="barcellona";
-	date="06/12/2013";
-	//data="aula="+aula+"&date="+date;
-	data='aula=barcellona&date=06/12/2013';
-	var sending = $.ajax({
-	headers: { 
-        Accept: "Content-type: application/xml; charset=UTF-8"
-    },
-      async: false,
-	  type: "POST",
-	  url: "cgi-bin/load.php",
-	  data: data
-	});
-	sending.success(function(ret, textStatus) {
-	  console.log("Dati salvati con successo: "+ret+", status: "+textStatus);
-	  return ret;
-	});
-	sending.fail(function(jqXHR, textStatus) {
-	  console.log( "Request failed: " + textStatus );
-	});
-	
-	}*/

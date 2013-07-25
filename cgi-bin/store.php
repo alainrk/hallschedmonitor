@@ -1,11 +1,14 @@
 <?php
 
-/* aula=barcellona&date=06%2F12%2F2013&start=7%3A30am&stop=7%3A30am&title=sddd&speaker=dddddd */
+/* aula=barcellona&timestamp=1374749097219&start=12:42&stop=12:42&title=Titolo Evento&speaker=Relatore Principale&day=09&month=07&year=2013 */
 
 $aula = $_POST["aula"];
-$date = $_POST["date"];
+$timestamp = $_POST["timestamp"];
 $start = $_POST["start"];
 $stop = $_POST["stop"];
+$day = $_POST["day"];
+$month = $_POST["month"];
+$year = $_POST["year"];
 $title = $_POST["title"];
 $speaker = $_POST["speaker"];
 
@@ -25,17 +28,22 @@ else {
 	die();
 	}
 
-$query2 = '//aule/aula[@id="'.$aula.'"]/date[@id="'.$date.'"]';
+//$query2 = '//aule/aula[@id="'.$aula.'"]/date[@id="'.$date.'"]';
+//$query2 = '//aule/aula[@id="'.$aula.'"]/date[@day="'.$day.' and @month='.$month.' and @year='.$year.'"]'; // TODO Sistema query
+$query2 = '//aule/aula[@id="'.$aula.'"]/date[@day="'.$day.'"][@month="'.$month.'"][@year="'.$year.'"]';
 $dateNode = $xpathDOM->query($query2);
 if ($dateNode->length != 0) {
 	$dateNode = $dateNode->item(0);
 	}
 else {
 	$dateNode = $xmlDoc->createElement('date');
-	$dateNode->setAttribute('id',$date);
+	$dateNode->setAttribute('day',$day);
+	$dateNode->setAttribute('month',$month);
+	$dateNode->setAttribute('year',$year);
 	$xmlDoc->appendChild($dateNode);
 	}
 $eventNode = $xmlDoc->createElement('event');
+$eventNode->setAttribute('timestamp',$timestamp);
 $eventNode->setAttribute('start',$start);
 $eventNode->setAttribute('stop',$stop);
 
