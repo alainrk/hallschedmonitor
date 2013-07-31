@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='script/lib/fullcalendar/fullcalendar.css' rel='stylesheet' />
+	<link href='script/lib//fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+	<script type='text/javascript' src='script/lib/jquery-2.0.2.min.js'></script>
+	<script src='script/lib/jquery-ui-1.10.2.custom.min.js'></script>
+	<script src='script/lib/fullcalendar/fullcalendar.min.js'></script>
+
+	<!--- My */ --->
+	<script type='text/javascript' src='script/functions-agenda.js'></script>
+
+<style>
+
+	body {
+		margin-top: px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
+
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+		}
+
+</style>
+</head>
+<body>
+
+    <div id="selectAulaDiv" >
+			<p>
+			<label for="aula" >Aula</label> 
+			<select name="aula" id="aula">
+			  <option value="barcellona">Barcellona</option>
+			  <option value="newyork">New York</option>
+			  <option value="londra">Londra</option>
+			  <option value="granada">Granada</option>
+			  <option value="laboratorio">Laboratorio</option>
+			</select>
+
+		<button type="button" id="refreshCalendar" >Refresh</button>
+		</p>
+	</div>
+
+	<div id='calendar'></div>
+</body>
+</html>

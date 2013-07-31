@@ -23,21 +23,17 @@
 >
 <!ELEMENT aule 	((aula)+) >
 
-<!ELEMENT aula 		((date)+) >
+<!ELEMENT aula 		((event)+) >
 <!ATTLIST aula
 	id    ID     #REQUIRED
->
-
-<!ELEMENT date 		((event)*) >
-<!ATTLIST date
-	day		CDATA	#REQUIRED
-	month	CDATA	#REQUIRED
-	year	CDATA	#REQUIRED
 >
 
 <!ELEMENT event 		(title, speaker) >
 <!ATTLIST event
 	timestamp	ID 	#REQUIRED
+	day		CDATA	#REQUIRED
+	month	CDATA	#REQUIRED
+	year	CDATA	#REQUIRED
 	start  	CDATA  	#REQUIRED
 	stop	CDATA	#REQUIRED
 >
@@ -46,6 +42,6 @@
 	<aula id="newyork"/>
 	<aula id="granada"/>
 	<aula id="laboratorio"/>
-	<aula id="londra"/>			
-	<aula id="barcellona"><date day="25" month="07" year="2013"><event timestamp="1374759485639" start="11:30" stop="15:34"><title>sdfsdfsd</title><speaker>fsdfsdfsdfsdf</speaker></event><event timestamp="1374759561968" start="12:15" stop="15:34"><title>werwer</title><speaker>werwer</speaker></event><event timestamp="1374759575927" start="12:15" stop="15:34"><title>dfgdfg</title><speaker>dfgdfg</speaker></event></date></aula>
+	<aula id="londra"><event timestamp="1375116794661" day="18" month="07" year="2013" start="14:45" stop="18:30"><title>sdfsdfs</title><speaker>dfsdfsdf</speaker></event></aula>			
+	<aula id="barcellona"><event timestamp="1375108817301" day="10" month="07" year="2013" start="14:45" stop="15:30"><title>dfgdfg</title><speaker>dfgdfg</speaker></event><event timestamp="1375108823821" day="11" month="07" year="2013" start="14:45" stop="15:30"><title>34t5eyert</title><speaker>yertyertye</speaker></event><event timestamp="1375108830405" day="16" month="07" year="2013" start="14:45" stop="15:30"><title>rtyertyert</title><speaker>yertyertyerty</speaker></event><event timestamp="1375108846693" day="16" month="07" year="2013" start="23:30" stop="23:45"><title>rtyerty</title><speaker>ertyerty</speaker></event><event timestamp="1375108854357" day="22" month="07" year="2013" start="23:30" stop="23:45"><title>ertyerty</title><speaker>ertyerty</speaker></event><event timestamp="1375108859966" day="23" month="07" year="2013" start="23:30" stop="23:45"><title>rtyerty</title><speaker>ertyert</speaker></event><event timestamp="1375108865821" day="24" month="07" year="2013" start="23:30" stop="23:45"><title>ertyerty</title><speaker>ertyerty</speaker></event><event timestamp="1375108871013" day="25" month="07" year="2013" start="23:30" stop="23:45"><title>ertyerty</title><speaker>ertyerty</speaker></event><event timestamp="1375108930492" day="24" month="07" year="2013" start="09:00" stop="17:15"><title>fdghfg</title><speaker>hdfghdfhg</speaker></event><event timestamp="1375108935791" day="25" month="07" year="2013" start="09:00" stop="17:15"><title>fdhgdfg</title><speaker>hdfhgd</speaker></event><event timestamp="1375108941619" day="27" month="07" year="2013" start="09:00" stop="17:15"><title>hyerthrtyhr</title><speaker>tyhrtyhrt</speaker></event><event timestamp="1375114864734" day="05" month="07" year="2013" start="18:20" stop="18:30"><title>sdfsdf</title><speaker>sdfsdf</speaker></event><event timestamp="1375118110148" day="29" month="07" year="2013" start="19:11" stop="19:30"><title>sdfsdf</title><speaker>sdfsdfsdf</speaker></event></aula>
 </aule>

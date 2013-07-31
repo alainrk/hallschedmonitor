@@ -1,9 +1,7 @@
 <?php
 
 $aula = $_POST["aula"];
-$day = $_POST["day"];
-$month = $_POST["month"];
-$year = $_POST["year"];
+$date = $_POST["date"];
 
 $xmlDoc = new DOMDocument();
 $xmlDoc->load("text.xml");
@@ -21,30 +19,18 @@ else {
 	}
 */
 
-//$query = '//aule/aula[@id="'.$aula.'"]/date[@day="'.$day.' and @month='.$month.' and @year='.$year.'"]';
-$query = '//aule/aula[@id="'.$aula.'"]/event[@day="'.$day.'"][@month="'.$month.'"][@year="'.$year.'"]';
+$query = '//aule/aula[@id="'.$aula.'"]/date[@id="'.$date.'"]';
 $dateNode = $xpathDOM->query($query);
 if ($dateNode->length == 0) {
 	header('Content-type: text/plain');
 	print "0";
 	die();
 	}
-
-$root = $xmlDoc->createElement('root');
-for ($i=0;$i<$dateNode->length;$i++){
-	$root->appendChild($dateNode->item($i));
-	}
-
-$xml = new DOMDocument( "1.0", 'UTF-8' );
-$root = $xml->importNode($root, true);
-$xml->appendChild($root);
-
-
-/*$dateNode = $dateNode->item(0);
+$dateNode = $dateNode->item(0);
 
 $xml = new DOMDocument( "1.0", 'UTF-8' );
 $domNode = $xml->importNode($dateNode, true);
-$xml->appendChild($domNode);*/
+$xml->appendChild($domNode);
 
 // To save and send
 //header ("Content-type: application/xml; charset=UTF-8");
